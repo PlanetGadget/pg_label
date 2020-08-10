@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Kemana Pvt Ltd.
+ *
+ * @category    Kemana
+ * @package     Kemana_Labelmanager
+ * @author      Kemana Team <contact@kemana.com>
+ * @copyright   Copyright (c) Kemana Pvt Ltd.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Model\Layout\Merge">
+        <plugin name="label-layout-update-plugin"
+                type="Kemana\Labelmanager\Plugin\LabelLayoutUpdate" sortOrder="5"/>
+    </type>
+    <type name="Kemana\Quickviewclassic\Block\Gallery">
+        <plugin name="label-layout-quick-view" type="Kemana\Labelmanager\Plugin\LabelQuickView"/>
+    </type>
+    <type name="Magento\Catalog\Block\Product\ListProduct">
+        <plugin name="label-details-to-listing" type="Kemana\Labelmanager\Plugin\Product\Listing"/>
+    </type>
+    <type name="Magento\CatalogSearch\Block\SearchResult\ListProduct">
+        <plugin name="label-details-to-search-listing" type="Kemana\Labelmanager\Plugin\Product\Listing"/>
+    </type>
+    <type name="Magento\Framework\Pricing\Render">
+        <plugin name="label-product-listing-price-render"
+                type="Kemana\Labelmanager\Plugin\ListingPriceRender" sortOrder="5"/>
+    </type>
+</config>

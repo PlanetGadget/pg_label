@@ -1,0 +1,433 @@
+//  Variables
+
+@ns-lm-zindex: 2;
+@ns-lm-padding: 5px;
+
+@ns-lm-bottom-margin: 10px 0;
+@ns-lm-vertical-margin: 5px 0;
+@ns-lm-horizontal-margin: 0 5px;
+
+@ns-lm-font-size: @font-size__base;
+@ns-lm-font-family: @font-family__base;
+@ns-lm-font-weight: 400;
+
+// only for label align right ( product list)
+@ns-product-label-margin-right: @indent__l;
+
+//  Quick viewpage-product-shopthelook
+
+@ns-lm-qv-top-left-margin: 0 0 0 10px;
+
+//  Mobile
+@ns-mb-lm-font-size: @font-size__base;
+
+//  Default sale Label
+
+@ns-sp-sale-bg:@color-blue1;
+@ns-sp-sale-font-color:@color-white;
+
+//
+//  Common
+//  --------------------------------------
+
+& when (@media-common = true) {
+
+    .product-item-info {
+        position: relative;
+    }
+    .product-item-photo {
+        text-decoration: none;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .ns-product-label {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        .lib-css(z-index, @ns-lm-zindex);
+        .lib-css(font-size, @ns-lm-font-size);
+        .lib-css(font-family, @ns-lm-font-family);
+        .lib-css(font-weight, @ns-lm-font-weight);
+        &.top-left {
+            left: 0;
+            top: 0;
+            li {
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+        }
+        &.top-center {
+            left: 0;
+            right: 0;
+            top: 0;
+            .lib-css(justify-content, center, 1);
+
+        }
+        &.top-right {
+            right: 0;
+            top: 0;
+            .lib-css(justify-content, flex-end, 1);
+
+            li {
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+        &.bottom-left {
+            left: 0;
+            bottom: 0;
+            position: absolute;
+            .lib-css(margin, @ns-lm-bottom-margin);
+
+            li {
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+        }
+        &.bottom-center {
+            position: absolute;
+            bottom: 0;
+            .lib-css(margin, @ns-lm-bottom-margin);
+            justify-content: center;
+            width: 100%;
+        }
+        &.bottom-right {
+            right: 0;
+            bottom: 0;
+            position: absolute;
+            .lib-css(margin, @ns-lm-bottom-margin);
+            .lib-css(justify-content, flex-end, 1);
+
+            li {
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        &.horizontal {
+            .lib-vendor-prefix-display(flex);
+            .lib-vendor-prefix-flex-direction(row);
+            .lib-vendor-prefix-flex-wrap(wrap);
+            .lib-css(align-items, flex-start, 1);
+
+        }
+
+        &.vertical {
+            .lib-vendor-prefix-display(flex);
+            .lib-vendor-prefix-flex-direction(column);
+            .lib-vendor-box-align(flex-start);
+
+            &.top-center,
+            &.top-left,
+            &.top-right {
+                li {
+                    .lib-css(margin, @ns-lm-vertical-margin);
+                }
+            }
+
+            &.bottom-center,
+            &.bottom-right,
+            &.bottom-left {
+                li {
+                    .lib-css(margin, @ns-lm-vertical-margin);
+                }
+            }
+            &.bottom-left {
+                .lib-vendor-box-align(flex-start);
+            }
+            &.bottom-right {
+                .lib-vendor-box-align(flex-end);
+
+            }
+            &.bottom-center {
+                .lib-vendor-box-align(center);
+            }
+            &.top-center {
+                .lib-vendor-box-align(center);
+            }
+            &.top-left {
+                .lib-vendor-box-align(flex-start);
+            }
+            &.top-right {
+                .lib-vendor-box-align(flex-end);
+            }
+        }
+        li {
+            .lib-css(padding, @ns-lm-padding);
+            .lib-css(margin, @ns-lm-horizontal-margin);
+        }
+    }
+    .shop-the-look-wrapper {
+        .ns-product-label {
+            &.bottom-right {
+                right: 0;
+                bottom: 0;
+                position: relative;
+                .lib-css(margin, @ns-lm-bottom-margin);
+                .lib-css(justify-content, flex-end, 1);
+
+                li {
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+    .product-info-main {
+        .ns-product-label {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            .lib-css(z-index, @ns-lm-zindex);
+            .lib-css(font-size, @ns-lm-font-size);
+            .lib-css(font-family, @ns-lm-font-family);
+            .lib-css(font-weight, @ns-lm-font-weight);
+            .lib-css(margin, @indent__s 0);
+            &.top-left {
+                left: 0;
+                top: 0;
+                li {
+                    &:first-child {
+                        margin: 0;
+                    }
+                }
+            }
+            &.top-center {
+                left: 0;
+                right: 0;
+                top: 0;
+                .lib-css(justify-content, center, 1);
+                li {
+                    &:first-child {
+                        margin: 0;
+                    }
+                }
+
+            }
+            &.top-right {
+                right: 0;
+                top: 0;
+                li {
+                    &:last-child {
+                        .lib-css(margin, @ns-lm-horizontal-margin);
+                    }
+                    &:first-child {
+                        margin: 0;
+                    }
+                }
+            }
+            &.bottom-left {
+                left: 0;
+                top: 0;
+                position: inherit;
+                li {
+                    &:first-child {
+                        margin: 0;
+                    }
+                }
+            }
+            &.bottom-center {
+                position: relative;
+                .lib-css(margin, @ns-lm-bottom-margin);
+                justify-content: center;
+                li {
+                    &:first-child {
+                        margin: 0;
+                    }
+                }
+            }
+            &.bottom-right {
+                right: 0;
+                bottom: 0;
+                position: relative;
+                .lib-css(margin, @ns-lm-bottom-margin);
+                .lib-css(justify-content, flex-end, 1);
+
+                li {
+                    &:last-child {
+                        .lib-css(margin, @ns-lm-horizontal-margin);
+                    }
+                    &:first-child {
+                        margin: 0;
+                    }
+                }
+            }
+            &.horizontal {
+                .lib-vendor-prefix-display(flex);
+                .lib-vendor-prefix-flex-direction(row);
+
+            }
+            &.vertical {
+                .lib-vendor-prefix-display(flex);
+                .lib-vendor-prefix-flex-direction(column);
+                .lib-vendor-box-align(flex-start);
+                &.top-center,
+                &.top-left,
+                &.top-right {
+                    li {
+                        .lib-css(margin, @ns-lm-vertical-margin);
+                    }
+                }
+                &.top-left {
+                  .lib-vendor-box-align(flex-start);
+                }
+                &.top-center {
+                    .lib-vendor-box-align(center);
+                }
+                &.top-right {
+                    .lib-vendor-box-align(flex-end);
+                }
+                &.bottom-center,
+                &.bottom-right,
+                &.bottom-left {
+                    li {
+                        .lib-css(margin, @ns-lm-vertical-margin);
+                    }
+                }
+                &.bottom-left {
+                    .lib-vendor-box-align(flex-start);
+                }
+                &.bottom-right {
+                    .lib-vendor-box-align(flex-end);
+                }
+                &.bottom-center {
+                    .lib-vendor-box-align(center);
+                }
+            }
+
+            li {
+                // .lib-css(padding, @ns-lm-padding);
+                //.lib-css(margin,@ns-lm-horizontal-margin);
+            }
+        }
+    }
+
+    .products-list {
+        .product-item-photo {
+            position: relative;
+        }
+        .ns-product-label {
+            &.top-right {
+                .lib-css(margin-right, @ns-product-label-margin-right);
+            }
+
+            &.bottom-right {
+                .lib-css(margin-right, @ns-product-label-margin-right);
+            }
+
+            &.vertical {
+                &.bottom-right {
+                    .lib-css(margin-right, @ns-product-label-margin-right);
+                }
+
+                &.top-right {
+                    .lib-css(margin-right, @ns-product-label-margin-right);
+                }
+            }
+
+        }
+    }
+
+    //  Product details page Media Section
+
+    .product {
+        &.media {
+            position: relative;
+        }
+    }
+
+    //  Quick view
+    .product-quickview {
+        .ns-product-label {
+            &.top-left {
+                .lib-css(margin, @ns-lm-qv-top-left-margin);
+            }
+        }
+    }
+
+    //  special price Sale Class
+
+    .sp-sale{
+        .lib-css(background,@ns-sp-sale-bg);
+        .lib-css(color,@ns-sp-sale-font-color);
+    }
+
+    .catalog-product-view {
+        .review-add {
+            position: relative;
+        }
+    }
+
+    .block.review-add {
+        position: relative;
+    }
+
+    .page-product-shopthelook {
+        .product-info-main {
+            .ns-product-label {
+                &.horizontal {
+                    &.bottom-left {
+                        top: inherit;
+                        bottom: 0;
+                        position: absolute;
+                    }
+
+                    &.bottom-center {
+                        position: absolute;
+                        bottom: 0;
+                        .lib-css(margin, @ns-lm-bottom-margin);
+                        justify-content: center;
+                        width: 100%;
+                    }
+
+                    &.bottom-right {
+                        top: inherit;
+                        bottom: 0;
+                        position: absolute;
+                    }
+                }
+
+                &.vertical {
+                    &.bottom-left {
+                        top: inherit;
+                        bottom: 0;
+                        position: absolute;
+                    }
+
+                    &.bottom-center {
+                        position: absolute;
+                        bottom: 0;
+                        .lib-css(margin, @ns-lm-bottom-margin);
+                        justify-content: center;
+                        width: 100%;
+                    }
+
+                    &.bottom-right {
+                        top: inherit;
+                        bottom: 0;
+                        position: absolute;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//
+//  Mobile
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m){
+    .ns-product-label {
+        .lib-css(font-size, @ns-mb-lm-font-size);
+    }
+}

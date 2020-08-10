@@ -1,0 +1,109 @@
+<?php
+/**
+ * Kemana Pvt Ltd.
+ *
+ * @category    Kemana
+ * @package     Kemana_Labelmanager
+ * @author      Kemana Team <contact@kemana.com>
+ * @copyright   Copyright (c) Kemana Pvt Ltd.
+ */
+?>
+<div class="types">
+    <fieldset class="fieldset">
+        <legend class="legend">
+            <span><?= /* @escapeNotVerified */ __('Label Data Files') ?></span>
+        </legend>
+        <?php $files = $this->getFiles(); ?>
+        <?php if ($files) : ?>
+            <?php foreach ($files as $website => $data) : ?>
+                <div class="type">
+                    <div id="log_details_fieldset" class="field log-details">
+                        <table class="admin__table-secondary">
+                            <colgroup>
+                                <col width="40%">
+                                <col width="10%">
+                                <col width="20%">
+                                <col width="30%">
+                                <col>
+                            </colgroup>
+                            <tbody>
+                            <tr>
+                                <th><?= /* @escapeNotVerified */ __('File') ?></th>
+                                <th><?= /* @escapeNotVerified */ __('File Exists') ?></th>
+                                <th><?= /* @escapeNotVerified */ __('Website') ?></th>
+                                <th><?= /* @escapeNotVerified */ __('Action Button') ?></th>
+                            </tr>
+                            <tr>
+                                <td><?= $data['file'] ?></td>
+                                <td class="has_file">
+                                    <?= $data['is_file'] ? '<span style="color:green">Exists</span>'
+                                        : '<span style="color:red">Not Exists</span>' ?>
+                                </td>
+                                <td><?= $data['website'] ?></td>
+                                <td><?= $block->getGenerateFileButtonsHtml($website); ?></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php else : ?>
+            <div class="type">
+                <?= __("No files can find for this website ..") ?>
+            </div>
+        <?php endif; ?>
+    </fieldset>
+</div>
+<script>
+    require([
+        "jquery",
+        'Magento_Ui/js/modal/alert'
+    ], function ($, alert) {
+
+        manageFile = {
+            generateFile: function (ele, website) {
+                $("#container").trigger('processStart');
+                var fileColumn = $(ele.closest('tr')).find('.has_file');
+                $.ajax({
+                    url: '<?= $block->generateFileUrl() ?>',
+                    type: 'POST',
+                    data: {website: website},
+                    success: function (data) {
+                        if (data.file_exist) {
+                            fileColumn.html('<span style="color:green">Exists</span>');
+                        }else{
+                            fileColumn.html('<span style="color:red">Not Exists</span>');
+                        }
+                        if (data.error) {
+                            alert({
+                                title: jQuery.mage.__('Error !'),
+                                content: jQuery.mage.__(data.error)
+                            });
+                        } else {
+                            if (data.labels == null && Object.keys(data.labelProducts).length == 0) {
+                                alert({
+                                    title: jQuery.mage.__('Success'),
+                                    content: jQuery.mage.__('Successfully file created. <br/> ' +
+                                        'Please note there are no enabled labels available in the grid.')
+                                });
+                            } else {
+                                alert({
+                                    title: jQuery.mage.__('Success'),
+                                    content: jQuery.mage.__('Successfully file created')
+                                });
+                            }
+                        }
+                        $("#container").trigger('processStop');
+                    },
+                    error: function (data) {
+                        alert({
+                            title: jQuery.mage.__('Error !'),
+                            content: jQuery.mage.__('Something has gone wrong')
+                        });
+                    }
+                });
+            }
+        }
+
+    });
+</script>

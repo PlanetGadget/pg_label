@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Kemana Pvt Ltd.
+ *
+ * @category    Kemana
+ * @package     Kemana_Labelmanager
+ * @author      Kemana Team <contact@kemana.com>
+ * @copyright   Copyright (c) Kemana Pvt Ltd.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Kemana_Labelmanager">
+        <sequence>
+            <module name="Magento_Core"/>
+            <module name="Magento_Backend"/>
+            <module name="Kemana_Core"/>
+        </sequence>
+    </module>
+</config>

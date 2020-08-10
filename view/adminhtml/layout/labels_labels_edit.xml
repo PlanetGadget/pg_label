@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Kemana Pvt Ltd.
+ *
+ * @category    Kemana
+ * @package     Kemana_Labelmanager
+ * @author      Kemana Team <contact@kemana.com>
+ * @copyright   Copyright (c) Kemana Pvt Ltd.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<head>
+    <script src="Kemana_Labelmanager::js/jscolor.min.js"/>
+</head>
+    <body>
+        <referenceContainer name="left">
+            <block class="Kemana\Labelmanager\Block\Adminhtml\Labels\Edit\Tabs" name="kemana_labelmanager_labels.edit.tabs">
+                <block class="Kemana\Labelmanager\Block\Adminhtml\Labels\Edit\Tab\Main" name="kemana_labelmanager_labels_edit_tab_main"/>
+                <block class="Kemana\Labelmanager\Block\Adminhtml\Labels\Edit\Tab\Options" name="kemana_labelmanager_labels_edit_tab_options"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">kemana_labelmanager_labels_edit_tab_main</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">options_sections</argument>
+                    <argument name="block" xsi:type="string">kemana_labelmanager_labels_edit_tab_options</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Kemana\Labelmanager\Block\Adminhtml\Labels\Edit" name="kemana_labelmanager_labels.edit"/>
+        </referenceContainer>
+    </body>
+</page>

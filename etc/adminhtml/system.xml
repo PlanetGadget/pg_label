@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Kemana Pvt Ltd.
+ *
+ * @category    Kemana
+ * @package     Kemana_Labelmanager
+ * @author      Kemana Team <contact@kemana.com>
+ * @copyright   Copyright (c) Kemana Pvt Ltd.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="labelmanager" translate="label" sortOrder="10" showInDefault="1"
+                 showInWebsite="1" showInStore="1">
+            <label>Product Label Manager</label>
+            <tab>kemana</tab>
+
+            <resource>Kemana_Labelmanager::config</resource>
+
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+                <field id="label_position" translate="label" type="select"
+                       sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Label Position</label>
+                    <validate>validate-no-empty</validate>
+                    <source_model>Kemana\Labelmanager\Model\Config\Source\Position</source_model>
+                    <comment>Position will only work with Product Image Container</comment>
+                </field>
+                <field id="list_style" translate="label" type="select"
+                       sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select List Style</label>
+                    <validate>validate-no-empty</validate>
+                    <source_model>Kemana\Labelmanager\Model\Config\Source\ListStyle</source_model>
+                </field>
+                <field id="layout_container" translate="label" type="select"
+                       sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product Detail Page Container</label>
+                    <validate>validate-no-empty</validate>
+                    <source_model>Kemana\Labelmanager\Model\Config\Source\LayoutHandler</source_model>
+                    <comment>Where to display in product detail page.The reference containers with "ex; label="Page Top" label attribute load to the list</comment>
+                </field>
+                <field id="number_of_labels_in_cat" translate="label comment" type="text" sortOrder="4"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Number of labels to display in product listing page</label>
+                    <validate>validate-no-empty</validate>
+                    <comment>Please enter only an integer</comment>
+                </field>
+                <field id="number_of_labels_in_prod_detail" translate="label comment" type="text" sortOrder="2"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Number of labels to display in product detail page</label>
+                    <validate>validate-no-empty</validate>
+                    <comment>Please enter only an integer</comment>
+                </field>
+                <field id="show_sales_label_based_on_special_price" translate="label comment" type="select" sortOrder="5"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show sale label based on Special Price</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>This is applicable for all the product types except group and the main product of the shop The Look product. This sale label is available for associated products of Shop The Look product.</comment>
+                </field>
+                <field id="show_sales_label_discount_perc" translate="label comment" type="select" sortOrder="6"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show sale label discount percentage</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="show_sales_label_based_on_special_price">1</field>
+                    </depends>
+                    <comment>Show discount percentage in label. If discount percentage and discount amount both set to 'Yes', discount percentage will be shown in sale label.</comment>
+                </field>
+                <field id="show_sales_label_discount_amnt" translate="label comment" type="select" sortOrder="7"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show sale label discount amount</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="show_sales_label_based_on_special_price">1</field>
+                    </depends>
+                    <comment>Show discount amount in sale label</comment>
+                </field>
+                <field id="sale_label_text" translate="label comment" type="text" sortOrder="8"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Text</label>
+                    <depends>
+                        <field id="show_sales_label_based_on_special_price">1</field>
+                    </depends>
+                    <comment>Sale label text ex; if discount percentage yes then it will show as 10% Discount</comment>
+                </field>
+                <field id="sale_label_position" translate="label comment" type="text" sortOrder="8"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sale label sort position</label>
+                    <depends>
+                        <field id="show_sales_label_based_on_special_price">1</field>
+                    </depends>
+                    <comment>Sale label sort position in label list default will be 1</comment>
+                    <validate>validate-not-negative-number</validate>
+                </field>
+                <field id="sale_label_style" translate="label comment" type="text" sortOrder="9"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sale label Style CSS</label>
+                    <depends>
+                        <field id="show_sales_label_based_on_special_price">1</field>
+                    </depends>
+                    <comment>Sale label CSS for automatic sale label creation. You can change the styles by adding custom css here. eg: color: #ffffff; background: #3AA638; height: 20px; </comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Kemana Pvt Ltd.
+ *
+ * @category    Kemana
+ * @package     Kemana_Labelmanager
+ * @author      Kemana Team <contact@kemana.com>
+ * @copyright   Copyright (c) Kemana Pvt Ltd.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Kemana_Labelmanager::labels" title="Product Label Manager" module="Kemana_Labelmanager"
+             sortOrder="8" parent="Kemana_Core::menu" resource="Kemana_Labelmanager::labels"/>
+        <add id="Kemana_Labelmanager::Kemana_Labelmanager_labels" title="Manage Labels"
+             module="Kemana_Labelmanager" sortOrder="1" parent="Kemana_Labelmanager::labels"
+             action="labels/labels/index" resource="Kemana_Labelmanager::labels" />
+        <add id="Kemana_Labelmanager::labels_data" title="Manage Labels Data"
+             module="Kemana_Labelmanager" sortOrder="1" parent="Kemana_Labelmanager::labels"
+             action="labels/labeldata/index" resource="Kemana_Labelmanager::data" />
+        <add id="Kemana_Labelmanager::configuration" title="Configurations"
+             module="Kemana_Labelmanager" sortOrder="1" parent="Kemana_Labelmanager::labels"
+             action="adminhtml/system_config/edit/section/labelmanager"
+             resource="Kemana_Labelmanager::configuration" />
+    </menu>
+</config>

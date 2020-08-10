@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Kemana Pvt Ltd.
+ *
+ * @category    Kemana
+ * @package     Kemana_Labelmanager
+ * @author      Kemana Team <contact@kemana.com>
+ * @copyright   Copyright (c) Kemana Pvt Ltd.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+   <update handle="formkey"/>
+   <update handle="labels_labels_grid_block"/>
+   <body>
+       <referenceContainer name="content">
+           <block class="Kemana\Labelmanager\Block\Adminhtml\Labels" name="kemana_labelmanager_labels.grid.container" />
+       </referenceContainer>
+   </body>
+</page>

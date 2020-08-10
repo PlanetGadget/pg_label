@@ -1,0 +1,36 @@
+{
+    "ns_labelmanager_attribute": {
+        "column": {
+            "label_id": true,
+            "name": true,
+            "attribute_code": true,
+            "is_active": true,
+            "layout_handler": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "ns_labelmanager_attribute_option": {
+        "column": {
+            "option_id": true,
+            "label_id": true,
+            "product_label_text": true,
+            "category_label_text": true,
+            "image_product": true,
+            "image_category": true,
+            "position": true,
+            "switch_to": true,
+            "visible_from": true,
+            "visible_to": true,
+            "sort_order": true,
+            "stores": true,
+            "background_color": true,
+            "font_color": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "NS_LABELMANAGER_ATTRIBUTE_OPTION_OPTION_ID": true
+        }
+    }
+}

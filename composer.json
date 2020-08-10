@@ -1,0 +1,26 @@
+{
+  "name": "kemana/module-labelmanager",
+  "description": "Kemana M2 Product Labelmanager module",
+  "require": {
+    "php": "~7.1.0|~7.2.0",
+    "magento/module-store": "*",
+    "magento/module-cms": "*",
+    "magento/module-config": "*",
+    "magento/module-backend": "*",
+    "magento/framework": "*",
+    "kemana/module-core":"*"
+  },
+  "type": "magento2-module",
+  "version": "100.35.0",
+  "license": [
+    "proprietary"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Kemana\\Labelmanager\\": ""
+    }
+  }
+}

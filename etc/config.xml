@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Kemana Pvt Ltd.
+ *
+ * @category    Kemana
+ * @package     Kemana_Labelmanager
+ * @author      Kemana Team <contact@kemana.com>
+ * @copyright   Copyright (c) Kemana Pvt Ltd.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <default>
+        <labelmanager>
+            <general>
+                <label_position>top-left</label_position>
+                <list_style>horizontal</list_style>
+                <number_of_labels_in_cat>1</number_of_labels_in_cat>
+                <number_of_labels_in_prod_detail>1</number_of_labels_in_prod_detail>
+                <show_sales_label_based_on_special_price>1</show_sales_label_based_on_special_price>
+                <layout_container>product.info.media</layout_container>
+                <sale_label_text>Sale</sale_label_text>
+                <sale_label_position>1</sale_label_position>
+                <sale_label_style>color: #ffffff; background: #3AA638; height: 20px;</sale_label_style>
+            </general>
+        </labelmanager>
+    </default>
+</config>

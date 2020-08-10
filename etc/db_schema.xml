@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Kemana Pvt Ltd.
+ *
+ * @category    Kemana
+ * @package     Kemana_Labelmanager
+ * @author      Kemana Team <contact@kemana.com>
+ * @copyright   Copyright (c) Kemana Pvt Ltd.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="ns_labelmanager_attribute" resource="default" engine="innodb">
+        <column xsi:type="int" name="label_id" nullable="false" unsigned="true" padding="10" identity="true"/>
+        <column xsi:type="varchar" name="name" nullable="true" length="100"/>
+        <column xsi:type="varchar" name="attribute_code" nullable="true" length="100"/>
+        <column xsi:type="smallint" name="is_active" padding="5" unsigned="true" nullable="false"
+                identity="false" default="0"/>
+        <column xsi:type="varchar" name="layout_handler" length="255" nullable="false" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="label_id"/>
+        </constraint>
+    </table>
+    <table name="ns_labelmanager_files" resource="default" engine="innodb">
+        <column xsi:type="int" name="file_id" nullable="false" unsigned="true" padding="10" identity="true"/>
+        <column xsi:type="varchar" name="path" nullable="true" length="200"/>
+        <column xsi:type="varchar" name="website" nullable="true" length="200"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="file_id"/>
+        </constraint>
+    </table>
+    <table name="ns_labelmanager_attribute_option" resource="default" engine="innodb">
+        <column xsi:type="int" name="option_id" nullable="false" unsigned="true" padding="10" identity="true"/>
+        <column xsi:type="int" name="label_id" nullable="false" unsigned="true" padding="10"
+                identity="false" default="0"/>
+        <column xsi:type="varchar" name="product_label_text" nullable="true" length="255"/>
+        <column xsi:type="varchar" name="category_label_text" nullable="true" length="175"/>
+        <column xsi:type="varchar" name="image_product" nullable="true" length="255"/>
+        <column xsi:type="varchar" name="image_category" nullable="true" length="255"/>
+        <column xsi:type="varchar" name="position" nullable="false" length="255"/>
+        <column xsi:type="varchar" name="switch_to" nullable="false" length="5"/>
+        <column xsi:type="datetime" name="visible_from" on_update="false" nullable="true" comment="Visible Labels From Date"/>
+        <column xsi:type="datetime" name="visible_to" on_update="false" nullable="true" comment="Visible Labels To Date"/>
+        <column xsi:type="int" name="sort_order" nullable="false" unsigned="true" padding="5" default="1" identity="false"/>
+        <column xsi:type="text" name="stores" nullable="true" />
+        <column xsi:type="varchar" name="background_color" nullable="false" length="10"/>
+        <column xsi:type="varchar" name="font_color" nullable="false" length="10"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="option_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="NS_LABELMANAGER_ATTRIBUTE_OPTION_OPTION_ID">
+            <column name="option_id"/>
+        </constraint>
+    </table>
+</schema>

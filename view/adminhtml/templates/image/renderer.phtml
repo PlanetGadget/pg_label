@@ -1,0 +1,97 @@
+<?php
+/**
+ * Kemana Pvt Ltd.
+ *
+ * @category    Kemana
+ * @package     Kemana_Labelmanager
+ * @author      Kemana Team <contact@kemana.com>
+ * @copyright   Copyright (c) Kemana Pvt Ltd.
+ */
+?>
+<h2>Add Label images</h2>
+<style>
+    td [type="text"]{width: 100%;}
+
+    td.image-btns{
+        max-width: 100px;
+    }
+
+    #mytbodyis tr td{
+        text-align: center;
+        vertical-align: middle;
+    }
+    #mytbodyis tr td a{
+        padding-top: 8px;
+        display: block;
+    }
+    td.image-btns {
+        max-width: 40px;
+    }
+    td.image-btns button{
+        width: 50%;
+    }
+
+    .tblLabelImg th {
+        text-align: center;
+    }
+
+    .admin__control-table {
+        margin-bottom: 20px;
+    }
+    /*#mytbodyis tr td [src=""] + input{display: none}*/
+</style>
+
+<?php
+$renderImage = $this->getLabelImage();
+$getMediaUrl =   $this->getMediaUrl();
+?>
+<table class="admin__control-table" width="100%" border="1" cellpadding="2" cellspacing="2">
+    <tbody id="mytbodyis">
+        <tr>
+            <td class="image-prod-img" width="25%"><img src="" alt="" />
+                <input class="imagerelpath" type="hidden" name="prod_labelimg" value=""/>
+            </td>
+            <td class="image-btns" width="25%">
+                <button class="mybuttonsis" type="button">
+                    <span class="chngimg">Change Image</span>
+                    <span class="addimg">Add Label Image</span>
+                </button>
+            </td>
+            <td class="image-img">
+                <table border="0" width="100%" class="tblLabelImg">
+                    <thead>
+                        <tr>
+                            <th>Product Label Image</th>
+                            <th>Category Label Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php if (isset($renderImage[0])) : ?>
+                        <tr>
+                            <td align="center">
+                                <?= ($renderImage[0]['image_product'] == '') ? 'No image available' : '
+                                <img src="' . $getMediaUrl . $renderImage[0]['image_product'] . '" width="100" />'; ?>
+                            </td>
+                            <td><?= ($renderImage[0]['image_product'] == '') ? 'No image available' : '
+                                <img src="' . $getMediaUrl . $renderImage[0]['image_category'] . '" width="100" />'; ?>
+                            </td>
+                        </tr>
+                    <?php endif; ?>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot></tfoot>
+</table>
+
+<!--banner-image-add-->
+<!--kemana/banner-image-add-->
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "kemana/label-image-add": ""
+        }
+    }
+</script>

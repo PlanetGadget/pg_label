@@ -1,0 +1,21 @@
+<?php
+/**
+ * Kemana Pvt Ltd.
+ *
+ * @category    Kemana
+ * @package     Kemana_Labelmanager
+ * @author      Kemana Team <contact@kemana.com>
+ * @copyright   Copyright (c) 2015 Kemana Pvt Ltd.
+ */
+
+$currentProduct = $block->getCurrentProduct();
+?>
+<div class="labels-list-<?= $currentProduct->getId() ?>"
+     data-mage-init='{"nsLabels": {
+     "id": "<?= $currentProduct->getId() ?>",
+     "location":"inner",
+     "baseUrl": "<?= $block->getBaseUrl() ?>",
+     "productType": "<?= $block->getProductType($currentProduct->getId()) ?>",
+     "currency": "<?= $block->getCurrencySymbol() ?>"}}'>
+</div>
+<!-- Label display container -->
