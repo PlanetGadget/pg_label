@@ -22,6 +22,8 @@
                 <sale_label_text>Sale</sale_label_text>
                 <sale_label_position>1</sale_label_position>
                 <sale_label_style>color: #ffffff; background: #3AA638; height: 20px;</sale_label_style>
+                <show_labels_on_plp>1</show_labels_on_plp>
+                <show_labels_on_pdp>1</show_labels_on_pdp>
             </general>
         </labelmanager>
     </default>

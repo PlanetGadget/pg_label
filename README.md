@@ -39,4 +39,4 @@ $ php bin/magento setup:upgrade
 #### Changelog
 [100.35.0] Initial module creation
 
-[100.35.1] Add Main container to Layout Handlers
+[100.35.1] Add Main container to Layout Handlers , add product labels display settings for PLP , PDP

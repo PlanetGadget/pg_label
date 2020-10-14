@@ -35,6 +35,8 @@ class Data extends AbstractHelper
     const XML_PATH_LABELS_COUNT = 'labelmanager/general/number_of_labels_in_prod_detail';
     const XML_PATH_LABELS_COUNT_IN_LISTING = 'labelmanager/general/number_of_labels_in_cat';
     const XML_PATH_SHOW_SALE_LABEL = 'labelmanager/general/show_sales_label_based_on_special_price';
+    const XML_PATH_SHOW_LABELS_ON_PLP = 'labelmanager/general/show_labels_on_plp';
+    const XML_PATH_SHOW_LABELS_ON_PDP = 'labelmanager/general/show_labels_on_pdp';
     /**
      * @var LayoutFactory
      */
@@ -240,5 +242,23 @@ class Data extends AbstractHelper
             'saleLabelPosition' => $this->getSalesLabelSortPosition($storeCode),
             'salesCSS' => $this->getSalesCSS($storeCode)
         ];
+    }
+
+    /**
+     * Show labels on PLP
+     * @return mixed|null
+     */
+    public function isShowLabelsOnPlp($storeCode)
+    {
+        return $this->scopeConfig->getValue(self::XML_PATH_SHOW_LABELS_ON_PLP, $storeCode);
+    }
+
+    /**
+     * Show labels on PDP
+     * @return mixed|null
+     */
+    public function isShowLabelsOnPdp($storeCode)
+    {
+        return $this->scopeConfig->getValue(self::XML_PATH_SHOW_LABELS_ON_PDP, $storeCode);
     }
 }

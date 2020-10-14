@@ -10,7 +10,7 @@
     <referenceContainer name="content">
         <block class="Magento\Framework\View\Element\Template"
                name="search_result_list_labels" as="search_result_list_labels"
-               template="Kemana_Labelmanager::product/label_list.phtml">
+               template="Kemana_Labelmanager::product/label_list.phtml"  ifconfig="labelmanager/general/show_labels_on_plp">
             <arguments>
                 <argument name="view_model" xsi:type="object">Kemana\Labelmanager\ViewModel\FileManager</argument>
             </arguments>

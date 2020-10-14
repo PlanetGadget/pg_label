@@ -103,17 +103,21 @@ class LabelLayoutUpdate
     protected function getXmlString()
     {
         //TODO:Look for alternative proper xml build method
-        $container=  $this->helper->getLayoutContainer();
-        $time = $this->dateTime->timestamp();
-        if (!$container) {
-            return;
-        }
+        if($this->helper->isShowLabelsOnPdp($this->storeManager->getStore()->getCode())){
+            $container=  $this->helper->getLayoutContainer();
+            $time = $this->dateTime->timestamp();
+            if (!$container) {
+                return;
+            }
 
-        $xml = "<body><referenceContainer name=\"" . $container . "\">";
-        $xml .= "<block class=\"Kemana\Labelmanager\Block\Labels\" name=\"ns.labels.container" . $time . "\"
+            $xml = "<body><referenceContainer name=\"" . $container . "\">";
+            $xml .= "<block class=\"Kemana\Labelmanager\Block\Labels\" name=\"ns.labels.container" . $time . "\"
         template=\"Kemana_Labelmanager::labels.phtml\" />";
-        $xml .= "</referenceContainer></body>";
+            $xml .= "</referenceContainer></body>";
 
-        return $xml;
+            return $xml;
+        }
+        return;
+
     }
 }

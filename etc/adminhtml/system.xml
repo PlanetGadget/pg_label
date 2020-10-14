@@ -102,6 +102,18 @@
                     </depends>
                     <comment>Sale label CSS for automatic sale label creation. You can change the styles by adding custom css here. eg: color: #ffffff; background: #3AA638; height: 20px; </comment>
                 </field>
+                <field id="show_labels_on_plp" translate="label comment" type="select" sortOrder="10"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Labels on Product Listing Page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Show Labels on Product Listing Page</comment>
+                </field>
+                <field id="show_labels_on_pdp" translate="label comment" type="select" sortOrder="11"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Labels on Product Detail Page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Show Labels on Product Detail Page</comment>
+                </field>
             </group>
         </section>
     </system>
