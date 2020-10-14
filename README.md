@@ -27,7 +27,7 @@ composer config repositories.kemana-labelmanager git https://git.kemana.com/kema
 
 Install module
 ```sh
-composer require kemana/module-labelmanager:100.35.0
+composer require kemana/module-labelmanager:100.35.1
 ```
 
 After installation by either means, enable the module by running following commands:
@@ -38,3 +38,5 @@ $ php bin/magento setup:upgrade
 
 #### Changelog
 [100.35.0] Initial module creation
+
+[100.35.1] Add Main container to Layout Handlers
