@@ -67,7 +67,7 @@ class LayoutHandler extends AbstractModel implements ArrayInterface
         }
 
         $count = count($allContainers);
-        $arrayItems = [""=>'-----Please Select A Container----','product.info.media'=>'Product Image Container'];
+        $arrayItems = [""=>'-----Please Select A Container----','product.info.media'=>'Product Image Container','product.info.main'=>'Main Container'];
         //merger arrays to load multiple themes
         for ($i=0;$i<$count;$i++) {
             $arrayItems = array_merge($arrayItems, $allContainers[$i]);
