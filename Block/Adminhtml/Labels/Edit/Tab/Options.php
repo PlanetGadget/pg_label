@@ -87,6 +87,15 @@ class Options extends Generic implements TabInterface
             ]
         );
         $fieldset->addField(
+            'product_label_tooltip_text',
+            'textarea',
+            [
+                'name'        => 'product_label_tooltip_text',
+                'label'    => __('Product Label Tooltip Text'),
+                'required'     => false
+            ]
+        );
+        $fieldset->addField(
             'category_label_text',
             'text',
             [

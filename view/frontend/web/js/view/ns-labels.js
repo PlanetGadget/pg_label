@@ -257,10 +257,20 @@ define([
                                     if(!labelText){
                                         labelText = labelData.name;
                                     }
-                                    labelList += "<li style='background-color: "
-                                        +labelData.background_color+"; color: "
-                                        +labelData.font_color+"' data-position='"+labelData.sort_order+"'>"
-                                        +labelText+"</li>";
+
+                                    if(labelData.product_label_tooltip_text){
+                                        labelList += "<li style='background-color: "
+                                            +labelData.background_color+"; color: "
+                                            +labelData.font_color+"' data-position='"+labelData.sort_order+"'>"
+                                            +"<span>"+labelText+"</span>"+"<div class='lbl-tooltip tp-"+labelText+"'><span>"+labelData.product_label_tooltip_text+"</span></div>"+"</li>";
+                                    }
+                                    else{
+                                        labelList += "<li style='background-color: "
+                                            +labelData.background_color+"; color: "
+                                            +labelData.font_color+"' data-position='"+labelData.sort_order+"'>"
+                                            +"<span>"+labelText+"</span></li>";
+                                    }
+
                                 }
                             }
                             labelItemCount++;

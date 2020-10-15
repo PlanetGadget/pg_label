@@ -108,6 +108,7 @@ class Collection extends AbstractCollection
                 'switch_to',
                 'category_label_text',
                 'product_label_text',
+                'product_label_tooltip_text',
                 'background_color',
                 'sort_order',
                 'font_color',

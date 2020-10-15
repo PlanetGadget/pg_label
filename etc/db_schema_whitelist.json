@@ -26,11 +26,22 @@
             "sort_order": true,
             "stores": true,
             "background_color": true,
-            "font_color": true
+            "font_color": true,
+            "product_label_tooltip_text": true
         },
         "constraint": {
             "PRIMARY": true,
             "NS_LABELMANAGER_ATTRIBUTE_OPTION_OPTION_ID": true
+        }
+    },
+    "ns_labelmanager_files": {
+        "column": {
+            "file_id": true,
+            "path": true,
+            "website": true
+        },
+        "constraint": {
+            "PRIMARY": true
         }
     }
 }
