@@ -18,7 +18,8 @@ define([
             location: "",
             baseUrl: false,
             currency: false,
-            productType: false
+            productType: false,
+            productLbl: ''
         },
         data : {
             labels: null,
@@ -119,7 +120,12 @@ define([
                             var productLabels = self.getLabels(currentProduct, 'pdp', priceDetails);
                             container.append(productLabels);
 
-                            /** caling for related products */
+                            /** calling for product labels hover events */
+                            let productLbl = self.options.productLbl;
+                            self._showTooltipMouseEnter(productLbl);
+                            self._showTooltipMouseLeave(productLbl);
+
+                            /** calling for related products */
                             var related = $('.products-related').length;
                             if (related) {
                                 self.loadListing();
@@ -290,6 +296,21 @@ define([
         },
         sortListOrder : function (a,b) {
             return parseInt($(a).data('position')) -   parseInt($(b).data('position'));
+        },
+        _showTooltipMouseEnter: function(productLbl) {
+            $(productLbl).each(function() {
+                $(this).find('ol li').mouseenter(function() {
+                    $(this).addClass('active');
+                });
+            });
+        },
+
+        _showTooltipMouseLeave: function(productLbl) {
+            $(productLbl).each(function() {
+                $(this).find('ol li').mouseleave(function() {
+                    $(this).removeClass('active');
+                });
+            });
         },
     });
     return $.ns.nsLabels;

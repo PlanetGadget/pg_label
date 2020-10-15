@@ -16,6 +16,7 @@ $currentProduct = $block->getCurrentProduct();
      "location":"inner",
      "baseUrl": "<?= $block->getBaseUrl() ?>",
      "productType": "<?= $block->getProductType($currentProduct->getId()) ?>",
+     "productLbl": ".labels-list-<?= $currentProduct->getId() ?>",
      "currency": "<?= $block->getCurrencySymbol() ?>"}}'>
 </div>
 <!-- Label display container -->
